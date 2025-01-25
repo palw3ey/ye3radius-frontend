@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST
+      - DB_USER
+      - DB_PASSWORD
+      - DB_NAME
+    env_file:
+      - ./config.env
+    depends_on:
+      - db
+  db:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: radius_user
+      MYSQL_USER: radius_dba
+      MYSQL_PASSWORD: radius_password
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
