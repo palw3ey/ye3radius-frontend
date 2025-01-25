@@ -5,7 +5,7 @@ FROM python:3.9-alpine
 WORKDIR /app
 
 # Abhängigkeiten installieren
-RUN apk add --no-cache gcc musl-dev libffi-dev
+RUN apk add --no-cache mariadb-dev gcc musl-dev libffi-dev
 
 # Python-Abhängigkeiten installieren
 COPY requirements.txt .
