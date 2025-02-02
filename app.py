@@ -23,7 +23,7 @@ def get_access_reject_entries(order_by="id", order_dir="DESC"):
     try:
         connection = create_connection()
         query = (
-            f"SELECT id, username, reply, authdate, packet_src_ip_address FROM radpostauth "
+            f"SELECT id, username, reply, authdate FROM radpostauth "
             f"WHERE reply = 'Access-Reject' "
             f"ORDER BY {order_by} {order_dir} "
             f"LIMIT 100"
