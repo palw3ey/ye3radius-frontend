@@ -12,6 +12,8 @@ VERSION = "1.0.0"  # Definiere die Version des Programms
 def create_connection():
     return mysql.connector.connect(
         host=os.getenv('DB_HOST', 'localhost'),          # Datenbank-Host
+        port=os.getenv('DB_PORT', '3306'),
+        ssl_disabled=os.getenv('DB_SSL_DISABLED', 'False'),
         user=os.getenv('DB_USER', 'radius_dba'),         # Datenbank-Benutzer
         password=os.getenv('DB_PASSWORD', 'Radius4711#'),# Datenbank-Passwort
         database=os.getenv('DB_NAME', 'radius_db'),      # Name der Datenbank
